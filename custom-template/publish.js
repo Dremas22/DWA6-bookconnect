@@ -355,7 +355,7 @@ function linktoExternal(longName, name) {
  */
 function buildNav(members) {
     let globalNav;
-    let nav = '<h2><a href="index.html">Book Connect JsDoc</a></h2>';
+    let nav = '<h2><a href="index.html">Book Connect App JsDoc</a></h2>';
     const seen = {};
     const seenTutorials = {};
 
@@ -613,7 +613,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     files = find({kind: 'file'});
     packages = find({kind: 'package'});
 
-    generate('Book Connect JsDoc',
+    generate('Book Connect App JsDoc',
         packages.concat(
             [{
                 kind: 'mainpage',

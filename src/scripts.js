@@ -1,7 +1,9 @@
-import { authors, genres, books, BOOKS_PER_PAGE } from './data.js'
+
+
+import {  BOOKS_PER_PAGE, authors, genres, books } from './data.js'
 
 /**
- * This variable holds a array of books
+ * This variable holds a array books
  * @type {string} matches 
  */
 
@@ -36,6 +38,10 @@ function createPreview({ author, id, image, title }) {
     return preview
 }
 
+/**
+ * This variable controls array books that has to be previewed
+ * @type {array} extraxted
+ */
 let extracted = books.slice(0, 36)
 let fragment = document.createDocumentFragment();
 for (const { author, image, title, id } of extracted) {
