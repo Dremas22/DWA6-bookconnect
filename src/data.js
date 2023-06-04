@@ -5,9 +5,9 @@
 
 /**
  * @param {number} BOOKS_PER_PAGE - This variable controls number of books to be viewed per web page
- * @param {Object} authors - object that store authors
- * @param {Object} genres - Object that stores diffrent types of genres
- * @param {Array} books - array that has nested boject arrays of books
+ * @typedef {Object} authors - object that store authors
+ * @typedef {Object} genres - Object that stores diffrent types of genres
+ * @type {Array} books - array that has nested boject arrays of books
  */
 export const BOOKS_PER_PAGE = 36;
 
