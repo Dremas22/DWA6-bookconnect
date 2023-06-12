@@ -79,17 +79,50 @@ listItems.append(...elements);
  * CREATING FRAGMENTS THAT CONTAINING DOCUMENT OBJECT ELEMENTS FOR OBJECT GENRE AND OBJECT AUTHOR
  */
 
-const searchGenre = document.querySelector('[data-search-genres]');
-searchGenre.innerHTML = `
-  <option value="any">All Genres</option>
-  ${Object.entries(genres).map(([id, name]) => `<option value="${id}">${name}</option>`).join('')}
-`;
+// ABSTRACTED AUTHORS AND GENRES OPTIONS
 
+
+const genresFrag = document.createDocumentFragment();
+
+
+let element = createOptionElement('any', 'All Genres');
+genresFrag.appendChild(element);
+
+for (const [id, name] of Object.entries(genres)) {
+  element = createOptionElement(id, name);
+  genresFrag.appendChild(element);
+}
+
+const searchGenre = document.querySelector('[data-search-genres]');
+searchGenre.appendChild(genresFrag);
+
+//---- ABSTRACTED CREATEOPTIONS ELEMENT FUNCTION FOR BOTH THE ENRES AND AUTHORS ----//
+
+function createOptionElement(value, text) {
+  const element = document.createElement('option');
+  element.value = value;
+  element.innerText = text;
+  return element;
+}
+
+
+// const searchAuthors = document.querySelector('[data-search-authors]');
+// searchAuthors.innerHTML = `
+//   <option value="any">All Authors</option>
+//   ${Object.entries(authors).map(([id, name]) => `<option value="${id}">${name}</option>`).join('')}
+// `;
+
+
+const authorsFrag = document.createDocumentFragment();
+let elementA = createOptionElement('any', 'All Authors');
+authorsFrag.appendChild(elementA);
+
+for (const [id, name] of Object.entries(authors)) {
+  elementA = createOptionElement(id, name);
+  authorsFrag.appendChild(elementA);
+}
 const searchAuthors = document.querySelector('[data-search-authors]');
-searchAuthors.innerHTML = `
-  <option value="any">All Authors</option>
-  ${Object.entries(authors).map(([id, name]) => `<option value="${id}">${name}</option>`).join('')}
-`;
+searchAuthors.appendChild(authorsFrag);
 
 
 /**
